@@ -12,7 +12,7 @@
 
 #include "common.h"
 
-#include "matexp.h"
+//#include "matexp.h"
 #include "matexp_gpu.h"
 
 #ifdef _DEBUG_

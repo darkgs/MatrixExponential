@@ -27,7 +27,25 @@ static void rand_n0(double* n0, int dim) {
 	}
 }
 
+int exec_() {
+	matexp_matrix* mat_input = matexp_create_matrix_from_file("data/DeplInfo_toy_BOC.txt");
+	double *y = (double*)malloc(sizeof(double)*mat_input->dim);
+
+	rand_n0(y, mat_input->dim);
+	matexp_gpu_calc(mat_input, y, 4.7);
+
+	matexp_release_matrix(mat_input);	mat_input = NULL;
+	free(y);
+	//matexp_finalize(me); me = NULL;
+	return 0;
+}
+
+/*
 int main(int argc, char *argv[]) {
+
+	exec_();
+
+	return 0;
 	int opt;
 
 	srand((unsigned int)time(NULL));
@@ -55,7 +73,6 @@ int main(int argc, char *argv[]) {
 	//matexp_finalize(me); me = NULL;
 	return 0;
 
-	/*
 	matexp_matrix* mat_bro = matexp_copy_matrix(mat_input);
 
 	int matrix_dim = 16;
@@ -86,6 +103,5 @@ int main(int argc, char *argv[]) {
 	matexp_finalize(me); me = NULL;
 
 	return 0;
-	*/
 }
-
+*/
